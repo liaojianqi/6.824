@@ -1,0 +1,26 @@
+5. The Raft Concensus Algorithm
+    Raft basics
+    Leader election
+    Log replication
+
+
+[]log first index is 1
+
+why?
+If leaderCommit > commitIndex, set commitIndex = min(leaderCommit, index of last new entry)
+
+Once a follower learns
+that a log entry is committed, it applies the entry to its
+local state machine (in log order).
+
+it includes that highest commited index in future
+AppendEntries RPCs (including heartbeats) so that the
+other servers eventually find out
+
+
+
+commitIndex
+log
+
+
+TODO: 1失联又重新连接，leader只给他传了一个数据？？？？
